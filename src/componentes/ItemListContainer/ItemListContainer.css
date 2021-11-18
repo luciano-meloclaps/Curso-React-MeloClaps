@@ -1,0 +1,5 @@
+.ItemListContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+}
