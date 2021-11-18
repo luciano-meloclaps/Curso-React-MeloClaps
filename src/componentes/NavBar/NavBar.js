@@ -1,3 +1,4 @@
+import { Icon } from "semantic-ui-react";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -10,7 +11,8 @@ const NavBar = () => {
         <li>Contacto</li>
       </ul>
       <ul className="container-items2">
-        <li>Mi Cuenta</li>
+        <Icon name="user" /> 
+        <Icon name="shopping cart" />
       </ul>
     </nav>
   );
