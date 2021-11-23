@@ -1,0 +1,9 @@
+.ItemListContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+}
+
+.items{
+    border: 3px solir blue
+}
