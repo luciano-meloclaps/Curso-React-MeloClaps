@@ -8,7 +8,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
     <div className={"section-counter"}>
 
-        <p>(Img Producto)</p>
+        <p>(Img, Producto)</p>
 
         <div className={"section-btn"}>
             <button onClick={() => setCounter(--counter)}>-</button>

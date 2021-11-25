@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css'
+
+//COMPONENTE ITEM COUNT
 import ItemCount from "../ItemCount/ItemCount";
 
-// import { Card, Icon, Image } from 'semantic-ui-react'
-// const ItemListContainer = ({img, name, description, mod}) => (
-//   <div className="ItemListContainer">
-//     <Card>
-//     <Image src={img} wrapped ui={false} />
-//     <Card.Content>
-//       <Card.Header>{name}</Card.Header>
-//       <Card.Description>
-//         {description}
-//       </Card.Description>
-//     </Card.Content>
-//     <Card.Content extra>
-//       <a>
-//         <Icon name='user' />
-//         {mod}
-//       </a>
-//     </Card.Content>
-//   </Card>
-//   </div>
+//COMPONENTE ITEMS (CARD) 
+import Items from '../Items/Items';
 
 const ItemListContainer = () => {
+  const[items, setItems] = useState ([])
+
+  console.log('State', items);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) =>  response.json())
+    .then((json) => setItems(json))
+  }, []);
+
+  return (
+    <div>
+      {items.map((items) => {
+        return <Items data={items} key={items.id} />;
+      })}
+    </div>
+  );
 
   let counterItem = 1
   let stock = 6
@@ -35,7 +37,8 @@ const ItemListContainer = () => {
     <main>
       <ItemCount initial={1} stock={stock} onAdd={onAdd}/>
     </main>
-  )
-};
+  ) 
+
+}
 
 export default ItemListContainer
