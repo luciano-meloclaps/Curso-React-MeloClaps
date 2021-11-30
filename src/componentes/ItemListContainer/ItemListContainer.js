@@ -21,12 +21,6 @@ const ItemListContainer = ({ categoryId }) => {
   return (
     <div>
       <h1>{categoryId}</h1>
-      {/* {
-        items.lenght > 0 ?
-          <ItemList items={items} />
-          :
-          <h5>Cargando...</h5>
-      } */}
       <ItemList items={items}/>
     </div>
   )
