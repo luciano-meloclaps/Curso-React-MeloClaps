@@ -1,59 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //CSS
 import './ItemListContainer.css'
 
 //COMPONENTE ITEMS (CARD) 
-import ItemList from '../ItemList/ItemList';
-import { useState } from 'react/cjs/react.development';
+import ItemList from '../ItemList/ItemList';  
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ categoryId }) => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
     setTimeout(() => {
-      
-      fetch('https://api.mercadolibre.com/sites/MLA/search?category=MLA1276')
+      fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=3`)
         .then(response => response.json())
         .then(respJSON => { console.log(respJSON.results); setItems(respJSON.results)})
         .catch(error => console.log("Error", error))
     }, 2000)
-  }, [])
+  }, [categoryId])
 
   return (
     <div>
-      <ItemList items={items} />
+      <h1>{categoryId}</h1>
+      {/* {
+        items.lenght > 0 ?
+          <ItemList items={items} />
+          :
+          <h5>Cargando...</h5>
+      } */}
+      <ItemList items={items}/>
     </div>
   )
 }
-
-  // const[items, setItems] = useState ([])
-
-  // console.log('State', items);
-
-  // useEffect(() => {
-  //   fetch("https://api.mercadolibre.com/MLA/search?category=MLA5726")
-  //   .then((response) =>  response.json())
-  //   .then((json) => setItems(json))
-  // }, []);
-
-//   return (
-
-//     <div>
-//         <>
-//           {items.map((item) => {
-//             return <Item data={item} key={item.id} />;
-//           })}
-//         </>
-      
-
-//   {/* Mandamos todos los items */
-//       <>
-//         <ItemList items={item} />
-//       </>
-
-//     </div>
-//   );
-// }
 
 export default ItemListContainer
