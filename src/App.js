@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Component } from "react/cjs/react.production.min";
 
 //COMPONENTES

@@ -2,9 +2,8 @@ import React from "react";
 import Item from "../Items/Item";
 
 //Recibimos "Item"
-const ItemList = ({items}) => {
+const ItemList = ({ items }) => {
     return (
-        //Mapear
         <>
             {
                 items.map((item) => (
