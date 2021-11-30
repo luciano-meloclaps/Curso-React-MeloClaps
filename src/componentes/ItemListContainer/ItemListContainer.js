@@ -1,44 +1,54 @@
-import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css'
 
 //COMPONENTE ITEM COUNT
 import ItemCount from "../ItemCount/ItemCount";
 
 //COMPONENTE ITEMS (CARD) 
-import Items from '../Items/Items';
+import Item from '../Items/Item';
+import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = () => {
-  const[items, setItems] = useState ([])
-
-  console.log('State', items);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) =>  response.json())
-    .then((json) => setItems(json))
-  }, []);
-
+const ItemListContainer = ({greeting}) => {
+  const addToCart = (qty) => {
+    let prod;
+    qty > 1 ? prod = 'productos' : prod = 'productos';
+    alert(`Ingresaste ${qty} ${prod} al carrito`)
+  }
   return (
     <div>
-      {items.map((items) => {
-        return <Items data={items} key={items.id} />;
-      })}
+      <h1>{greeting}</h1>
+      <ItemCount stock={5} initial={0} onAdd={addToCart} />
     </div>
-  );
-
-  let counterItem = 1
-  let stock = 6
-
-  const onAdd = counter => {
-    stock >= counter ? counterItem = counter : counterItem = 0
-  }
-
-  return (
-    <main>
-      <ItemCount initial={1} stock={stock} onAdd={onAdd}/>
-    </main>
-  ) 
+  )
 
 }
+
+  // const[items, setItems] = useState ([])
+
+  // console.log('State', items);
+
+  // useEffect(() => {
+  //   fetch("https://api.mercadolibre.com/MLA/search?category=MLA5726")
+  //   .then((response) =>  response.json())
+  //   .then((json) => setItems(json))
+  // }, []);
+
+//   return (
+
+//     <div>
+//         <>
+//           {items.map((item) => {
+//             return <Item data={item} key={item.id} />;
+//           })}
+//         </>
+      
+
+//   {/* Mandamos todos los items */
+//       <>
+//         <ItemList items={item} />
+//       </>
+
+//     </div>
+//   );
+// }
 
 export default ItemListContainer
