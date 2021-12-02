@@ -6,7 +6,7 @@ import './ItemListContainer.css'
 //COMPONENTE ITEMS (CARD) 
 import ItemList from '../ItemList/ItemList';  
 
-const ItemListContainer = ({ categoryId }) => {
+const ItemListContainer = ({ categoryId  }) => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -21,7 +21,13 @@ const ItemListContainer = ({ categoryId }) => {
   return (
     <div>
       <h1>{categoryId}</h1>
-      <ItemList items={items}/>
+        {
+        items.length > 0 ?
+        <ItemList items={items} />
+        :
+        <h5>Cargando...</h5>
+        }
+
     </div>
   )
 }

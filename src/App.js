@@ -3,10 +3,17 @@ import "./App.css";
 // import PropTypes from 'prop-types';
 import { Component } from "react/cjs/react.production.min";
 
+//CSS
+import "./componentes/NavBar/NavBar.css"
+
 //COMPONENTES
 import NavBar from "./componentes/NavBar/NavBar";
-import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+//VIEWS
+import Category from "./views/Category";
+import Home from "./views/Home"
 
 class App extends Component {
   
@@ -15,9 +22,15 @@ class App extends Component {
     return (
 
       <div className="container-items">
-      
-        <NavBar />
-        <ItemListContainer categoryId="MLA1276" />
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} ></Route>
+            <Route path='/Category/:id' element={<Category />} ></Route>
+            <Route path='/Item/:id' element={<ItemDetailContainer />} ></Route>
+          </Routes>
+        </Router>
+        
         <ItemDetailContainer />
       </div>  
     );
