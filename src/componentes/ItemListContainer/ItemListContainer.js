@@ -11,15 +11,16 @@ const ItemListContainer = ({ categoryId  }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=3`)
+      fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=10`)
         .then(response => response.json())
         .then(respJSON => { console.log(respJSON.results); setItems(respJSON.results)})
         .catch(error => console.log("Error", error))
-    }, 2000)
+    }, )
+    console.log()
   }, [categoryId])
 
   return (
-    <div>
+    <div >
       <h1>{categoryId}</h1>
         {
         items.length > 0 ?

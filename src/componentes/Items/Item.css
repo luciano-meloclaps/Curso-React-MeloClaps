@@ -1,0 +1,11 @@
+.card-item{
+    display: flex;
+    background-color: thistle;
+    padding: 2rem;
+}
+.item.card{
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    
+}

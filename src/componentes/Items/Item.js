@@ -1,10 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
+import "../Items/Item.css"
 
 const Item = ({ item }) => {
     // <div className="ItemListContainer">
+    const navigate = useNavigate() 
         return (
-            <>
-                <div className="ui cards">
+            <div className="card-item">
+                <div className="ui cards item.card " onClick={() => navigate(`/item/${item.id}`)}>
                     <div className="card">
                         <div className="image">
                             <img src={item.thumbnail} alt="imagen" />
@@ -16,7 +19,7 @@ const Item = ({ item }) => {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
         )
 }
 

@@ -1,22 +1,32 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+// import { Link } from "react-router-dom";
+import { useParams } from "react-router";
+import axios from "axios";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({})
+    let id = useParams();
+
+    let productID =  id.id;
+
+    const [item, setItem] = useState([])
+
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch('https://api.mercadolibre.com/sites/MLA/search?q=Nike&limit=1')
-                .then(response => response.json())
-                .then(respJSON => { setItem(respJSON.results[0]); console.log(respJSON.results[0]); })
-                .catch(error => console.log("Error", error))
-        }, 2000)
-    }, [])
+        axios(`https://jsonplaceholder.typicode.com/todos/${productID}`).then((res) =>
+            setItem(res.data)
+            
+            );
+    console.log(productID)
+    }, [productID]);
+
 
     return (
+
         <>
-            <ItemDetail item={item} />
+        <ItemDetail item={item} />
         </>
+        
     )
 }
 

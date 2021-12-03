@@ -1,14 +1,15 @@
 import React from "react";
 import "./App.css";
-// import PropTypes from 'prop-types';
-import { Component } from "react/cjs/react.production.min";
+import "./componentes/Items/Item.css"
 
-//CSS
-import "./componentes/NavBar/NavBar.css"
+//PROPTYPES 
+import { Component } from "react/cjs/react.production.min";
 
 //COMPONENTES
 import NavBar from "./componentes/NavBar/NavBar";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
+
+//REACT ROUTER DOM
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 //VIEWS
@@ -31,7 +32,6 @@ class App extends Component {
           </Routes>
         </Router>
         
-        <ItemDetailContainer />
       </div>  
     );
   }

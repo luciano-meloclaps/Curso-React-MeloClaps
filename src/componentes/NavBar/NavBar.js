@@ -6,10 +6,10 @@ const NavBar = () => {
   return (
     <nav className="container">
       <ul className="container-items1">
-        <NavLink to="/" activeClassName="active" >Home</NavLink>
-        <NavLink to="/Category/Ropa" activeClassName="active" >Catalogo</NavLink>
-        <NavLink to="" activeClassName="active" >Nosotros</NavLink>
-        <NavLink to="" activeClassName="active" >Contacto</NavLink>
+        <NavLink to="/" ClassName="link" >Home</NavLink>
+        <NavLink to="/" ClassName="link" >Catalogo</NavLink>
+        <NavLink to="" ClassName="link" >Nosotros</NavLink>
+        <NavLink to="" ClassName="link" >Contacto</NavLink>
       </ul>
       <ul className="container-items2">
         <Icon name="user" /> 
