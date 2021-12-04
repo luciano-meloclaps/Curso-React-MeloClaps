@@ -36,8 +36,14 @@ i.icon, i.icons {
   padding: 0 .5rem;
 }
 
-.active{
-  color: white;
+.link{
+
+  margin: 0 .8rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+a{
   margin: 0 .8rem;
   font-weight: 600;
   font-size: .9rem;

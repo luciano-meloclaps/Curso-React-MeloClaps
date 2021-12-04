@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 import "../Items/Item.css"
+import { Button, Icon } from 'semantic-ui-react'
 
 const Item = ({ item }) => {
     // <div className="ItemListContainer">
@@ -16,6 +17,12 @@ const Item = ({ item }) => {
                             <div className="header">${item.price}</div>
                             <div className="meta">{item.category_id}</div>
                             <div className="description">{item.title}</div>
+                            <Button animated='vertical'>
+                            <Button.Content hidden>Shop</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='shop' />
+                            </Button.Content>
+                            </Button>
                         </div>
                     </div>
                 </div>
