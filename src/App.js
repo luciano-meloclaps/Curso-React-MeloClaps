@@ -27,7 +27,7 @@ class App extends Component {
           <NavBar />
           <Routes>
             <Route path='/' element={<Home />} ></Route>
-            <Route path='/Category/:id' element={<Category />} ></Route>
+            <Route path='/Category/:categoryId' element={<Category />} ></Route>
             <Route path='/Item/:id' element={<ItemDetailContainer />} ></Route>
           </Routes>
         </Router>
